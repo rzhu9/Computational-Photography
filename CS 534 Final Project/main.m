@@ -1,0 +1,10 @@
+clc;
+input_image = imread('test6.jpg');
+input_image = im2double(input_image); 
+%input_image = imresize(input_image,0.5);
+horizontal_seam = skyBorder(input_image);
+horizontal_seam  = horizontal_seam + 2;
+input_image = colorfilter(input_image,10,5,0.04);
+%input_image = myhisteq(input_image);
+input_image2 = texture_synthesis(horizontal_seam, input_image);
+imwrite(input_image2, 'output6.4.jpg');
